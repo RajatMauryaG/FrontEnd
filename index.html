@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app="wonderApp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/inline.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="styles/ui-grid.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Restaurant Menu App</title>
+  </head>
+  <body>
+    <header class="nav" ng-controller="WonderSelectionController as wonders">
+  		<div class="nav-title">
+            <a href="/" class="ref"><img src="images/logo.svg" class="img-responsive" alt="" /></a>
+  		<!-- <h1>RupeeK</h1> -->
+  		</div>
+    </header>
+    <div class="col-md-12 col-xs-12 col-lg-12" style = "padding: 16px; background: #d3d3d3; height: auto" ng-controller="WonderSelectionController as wonders">   
+      <div class="col-lg-4 col-md-4 col-xs-12">
+        <input type="text" placeholder="Search by Names" class="form-control" ng-model="wonders.searchTerm" >
+        <a href="#" class="search-icon">
+       	<i class="fa fa-search" id="myimage" ng-click="wonders.search(wonders.searchTerm)"></i>
+    	</a>
+       </div>
+       <p ng-if="wonders.foundItems.length" style="color: red">Found</p>
+       <div class="col-lg-2 col-md-2 col-xs-6" style="font-weight: bold" ng-model="wonders.hitsAPI"> API Hits : {{ wonders.hitsAPI }}</div>
+       <div class="col-lg-2 col-md-2 col-xs-6" style="font-weight: bold" ng-model="wonders.likes"> Likes : {{ wonders.likes }}</div>
+        
+        <div class="col-lg-4 col-md-4 col-xs-12">
+        <input type="text" placeholder="Rating Sort By" class="form-control" ng-model="wonders.sortTerm" >
+        <a href="#" class="search-icon">
+       	<i class="fa fa-search"  ng-click="wonders.sort(wonders.sortTerm)"></i>
+    	</a>
+       </div>
+    </div>
+             
+            <!-- 	<li>Total Likes</li>
+            	<li>API hits</li>
+            	<li>SortBy: Rating</li> -->
+    
+    
+      	<!-- <ui-view></ui-view> -->
+    <div class="row"  ng-controller="WonderSelectionController as wonders" >
+            <!-- <wonder-data wonder-data="wonders.wonderData"></wonder-data> -->
+    		<!-- <div ng-if="wonders.wonderData.length" > -->
+             <div class="col-md-6 col-xs-12 container" style= "padding: 30px;" ng-repeat="items in wonders.wonderData">
+              <img  ng-src="{{ items.imageURL}}" alt="{{ items.Id}}" />
+                <div class="overlay">
+    				<div class="text">{{ items.Decription }}</div>
+  				</div>
+         </div>
+      </div>
+    	
+
+      <script src="lib/angular.min.js"></script>
+      <script src="lib/angular-ui-router.min.js"></script>
+	  <script src="src/webApp/wonderdata.service.js"></script>
+      <!-- <script src="src/menuApp/app.js"></script> -->
+      <!-- <script src="src/routes.js"></script> -->
+      <script src="lib/ui-grid.js"></script>
+
+      <!-- <script src="src/menuApp/categories.component.js"></script>
+      <script src="src/menuApp/items.component.js"></script>
+      <script src="src/menuApp/menudata.service.js"></script>
+      <script src="src/menuApp/menuCategories.controller.js"></script>
+      <script src="src/menuApp/menuSelection.controller.js"></script> -->
+ 
+  </body>
+</html>

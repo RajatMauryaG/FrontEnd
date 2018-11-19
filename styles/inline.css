@@ -1,0 +1,138 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.nav{
+    width: auto;
+    background: white;
+    color: black;
+    height: 70px;
+    font-family: sans-serif;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-title {
+    width: 30%;
+    display: flex;
+    padding: 16px 40px;
+}
+
+.ref {
+    display: inline-block;
+    max-width: 160px;
+}
+
+.img-responsive{
+    max-width: 100%;
+    height: auto;
+}
+.nav-menu {
+    width: 70%;
+}
+
+.nav-menu ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-menu ul li{
+    padding: 10px 20px;
+    list-style-type: none;
+    color: black;
+    cursor: pointer;
+}
+
+.nav-menu ul li:hover {
+    color: #fff;
+    font-weight: bold;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    margin-top: -10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .7s ease;
+  background-color: {{ items.Decription }};
+}
+
+.container:hover .overlay {
+  opacity: 0.6;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+/* style for responsive menu */
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .nav{
+        height: auto;
+    }
+    .nav .nav-title{
+        text-align: left;
+        width: 100%;
+    }
+    .nav .nav-menu{
+        width: 100%;
+    }
+    
+    .nav .nav-menu ul {
+        justify-content: space-around;
+    }
+    
+    .nav .nav-menu ul li {
+        width: 20%;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 16px;
+    }
+    .img-responsive{
+        height: auto;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .col-xs-6 {
+        padding: 6px;
+    }
+}
+
+/* .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}  */
